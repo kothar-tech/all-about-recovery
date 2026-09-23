@@ -61,7 +61,7 @@ export const organizationSchema = {
   name: site.name,
   legalName: site.legalName,
   url: SITE_URL,
-  logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-mark.svg` },
+  logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-mark.png` },
   image: `${SITE_URL}/images/hero-group-walking.webp`,
   description: site.description,
   email: site.email,

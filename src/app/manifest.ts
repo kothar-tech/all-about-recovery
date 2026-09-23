@@ -12,7 +12,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#fbf1e0",
     lang: "en-AU",
     icons: [
-      { src: "/logo-mark.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
+      { src: "/logo-mark.png", sizes: "354x549", type: "image/png", purpose: "any" },
     ],
   };
 }

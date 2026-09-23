@@ -44,7 +44,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-4">
             <Link href="/" aria-label={`${site.name} — home`} className="inline-block text-cream transition-opacity hover:opacity-80">
-              <Image src="/logo.svg" alt={site.name} width={176} height={58} className="h-11 w-auto" />
+              <Image src="/logo-on-dark.png" alt={site.name} width={178} height={64} className="h-11 w-auto" />
             </Link>
             <p className="mt-6 max-w-sm text-[0.9375rem] leading-relaxed text-cream/70">
               A registered NDIS provider walking alongside people navigating mental

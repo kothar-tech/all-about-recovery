@@ -62,13 +62,15 @@ export default function HomePage() {
             <Reveal delay={140}>
               <div className="mt-7 flex flex-col gap-5 text-[1.0625rem] leading-relaxed text-bark/75">
                 <p>
-                  At All About Recovery, we believe that every person deserves the
-                  opportunity to live a fulfilling, independent, and meaningful life.
+                  At All About Recovery, we believe that every person deserves
+                  the opportunity to live a fulfilling, independent, and
+                  meaningful life.
                 </p>
                 <p>
-                  We work across Sydney, Tamworth, and Dubbo, and are dedicated to
-                  delivering professional, compassionate, and person-centred care that
-                  helps you achieve your goals and live life on your terms.
+                  We work across Sydney, Tamworth, and Dubbo, and are dedicated
+                  to delivering professional, compassionate, and person-centred
+                  care that helps you achieve your goals and live life on your
+                  terms.
                 </p>
               </div>
             </Reveal>
@@ -94,7 +96,9 @@ export default function HomePage() {
             lead="Seven support types plus accommodation — all delivered by the same team, so nothing gets lost between services."
           />
           <Reveal delay={120} className="shrink-0">
-            <Button href="/services" variant="ghost" withArrow>All services</Button>
+            <Button href="/services" variant="ghost" withArrow>
+              All services
+            </Button>
           </Reveal>
         </div>
 
@@ -114,13 +118,22 @@ export default function HomePage() {
                 <div className="flex flex-col gap-3">
                   <h3 className="text-h3">Accommodation Support</h3>
                   <p className="text-[0.9375rem] leading-relaxed text-cream/70">
-                    SIL, SDA, short and medium term accommodation, and in-home respite —
-                    living arrangements that genuinely work for you.
+                    SIL, SDA, short and medium term accommodation, and in-home
+                    respite — living arrangements that genuinely work for you.
                   </p>
                 </div>
                 <span className="inline-flex items-center gap-2 text-sm font-semibold text-sage-light">
                   Explore accommodation
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="size-4 transition-transform duration-200 group-hover:translate-x-1">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.6}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                    className="size-4 transition-transform duration-200 group-hover:translate-x-1"
+                  >
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
                 </span>
@@ -139,6 +152,7 @@ export default function HomePage() {
         tone="sand"
         lead="The questions we're asked most often about NDIS funding, referrals and how our support actually works."
       />
+
       <CTASection />
 
       <JsonLd

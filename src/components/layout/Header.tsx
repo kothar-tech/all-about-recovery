@@ -111,10 +111,10 @@ export function Header() {
           aria-label={`${site.name} — home`}
         >
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt={site.name}
-            width={150}
-            height={49}
+            width={178}
+            height={64}
             priority
             className={`w-auto transition-[height] duration-300 ease-[var(--ease-out-soft)] ${
               scrolled ? "h-8 md:h-9" : "h-9 md:h-10"
