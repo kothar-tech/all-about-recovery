@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+/* ============================================================
+   All About Recovery — design tokens
+   Palette sampled directly from allaboutrecovery.com.au so the
+   brand colours stay byte-identical to the existing theme.
+   ============================================================ */
+@theme {
+  /* Neutrals / surfaces */
+  --color-cream: #fbf1e0;
+  --color-sand: #f0e2cc;
+  --color-sand-deep: #e5d3b8;
+  --color-shell: #fdf8ef;
+
+  /* Brand dark — body copy, headings, dark sections */
+  --color-bark: #543332;
+  --color-bark-deep: #3d2322;
+  --color-bark-soft: #6b4746;
+
+  /* Sage — primary accent */
+  --color-sage: #68744b;
+  --color-sage-deep: #4f5939;
+  --color-sage-light: #bbc79d;
+  --color-sage-pale: #dde4cb;
+
+  /* Terracotta — CTA / emphasis */
+  --color-terracotta: #c66d39;
+  --color-terracotta-deep: #a2521f;
+  /* -ink shades are for TEXT on light surfaces (WCAG AA at small sizes) */
+  --color-terracotta-ink: #8d4619;
+  --color-peach: #e6ac89;
+  --color-peach-pale: #f5dcc8;
+
+  /* Teal — tertiary accent */
+  --color-teal: #678f97;
+  --color-teal-deep: #4d7078;
+  --color-teal-ink: #3f5c64;
+  --color-teal-light: #c2d4d8;
+
+  --color-tan: #d5ba9d;
+
+  /* Type */
+  --font-sans: var(--font-gabarito), ui-sans-serif, system-ui, sans-serif;
+
+  /* Radii — soft, organic, matching the existing brand */
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.875rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 1.75rem;
+  --radius-xl: 2.25rem;
+  --radius-2xl: 3rem;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-bark);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Headings get tighter tracking + balanced wrapping */
+  h1, h2, h3, h4 {
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible, on-brand focus ring everywhere (never removed) */
+  :focus-visible {
+    outline: 3px solid var(--color-terracotta);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: var(--color-sage-light);
+    color: var(--color-bark-deep);
+  }
+}
+
+@layer utilities {
+  /* Consistent page gutter — one source of truth for horizontal rhythm */
+  .container-page {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .container-page { padding-inline: 2rem; }
+  }
+  @media (min-width: 1024px) {
+    .container-page { padding-inline: 3rem; }
+  }
+
+  .text-balance { text-wrap: balance; }
+
+  /* Fluid display type used by hero + section headings */
+  .text-display {
+    font-size: clamp(2.5rem, 1.4rem + 4.6vw, 5.25rem);
+    line-height: 0.98;
+    font-weight: 600;
+  }
+  .text-h2 {
+    font-size: clamp(1.875rem, 1.25rem + 2.6vw, 3.25rem);
+    line-height: 1.06;
+    font-weight: 600;
+  }
+  .text-h3 {
+    font-size: clamp(1.375rem, 1.1rem + 1.1vw, 1.875rem);
+    line-height: 1.18;
+    font-weight: 600;
+  }
+  .text-lead {
+    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.3125rem);
+    line-height: 1.6;
+  }
+}
+
+/* ---------- Scroll reveal (progressive enhancement) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s var(--ease-out-soft),
+    transform 0.7s var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+/* If JS never runs, content must still be visible */
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* ---------- Infinite marquee ---------- */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee-x var(--marquee-duration, 45s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .animate-marquee { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
